@@ -1,0 +1,6 @@
+gymnasium
+gymnasium_2048
+torch
+numpy
+tqdm
+tensorboard
