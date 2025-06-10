@@ -17,7 +17,7 @@ from tqdm import tqdm
 from game import obs_to_tensor, legal_move_mask, create_env # Assuming game.py is in the same directory
 
 # For PER
-class _SumTree:
+class SumTree:
     """Binary tree datastructure for O(log N) priority ops."""
     def __init__(self, capacity: int):
         self.capacity = capacity
@@ -87,7 +87,7 @@ class PrioritizedReplayBuffer:
     """
     def __init__(self, capacity: int, alpha: float = 0.6, beta_start: float = 0.4,
                  beta_frames: int = 250_000, eps: float = 1e-5):
-        self.tree = _SumTree(capacity)
+        self.tree = SumTree(capacity)
         self.alpha = alpha
         self.beta_start = beta_start
         self.beta_frames = beta_frames
